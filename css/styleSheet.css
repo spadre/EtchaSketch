@@ -1,0 +1,21 @@
+.container{
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+
+.xDiv{
+    display: flex;
+    flex-direction: column;
+    width: 50px;
+    height: auto;
+   
+}
+.yDiv{
+    border-style: solid;
+    border-radius: 1px;
+    width: 50px;
+    height: 50px;
+}
