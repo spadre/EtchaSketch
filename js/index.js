@@ -11,7 +11,7 @@ function createStartingDivs(){
     });
 
     createBoard(16,16);
-   
+   hoverMouse();
 }
 
 // function asks user to input x and y rows (max 100) and creates new board, also deletes old board
@@ -47,7 +47,9 @@ function createBoard(xDiv,yDiv){
             
         }
     }
+   
     hoverMouse();
+    document.querySelector("#colorBtn").textContent = "Blue color";
 }
 
 // hovering mouse over divs changes div to red and leaving div leaves color blue
@@ -84,13 +86,14 @@ function changeColor(){
     let colorBtn = document.querySelector("#colorBtn");
 
     switch(colorBtn.textContent){
+        case "Blue color": 
+            hoverMouseRandomColor();
+            colorBtn.textContent = "Random color";
+            break;
         case "Random color":
             hoverMouse();
             colorBtn.textContent = "Blue color";
             break;
-        case "Blue color": 
-            hoverMouseRandomColor();
-            colorBtn.textContent = "Random color";
     }
 }
 
