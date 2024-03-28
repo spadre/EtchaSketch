@@ -1,14 +1,17 @@
 function createStartingDivs(){
     
     const newBoardBtn = document.querySelector("#newBoard");
+    const colorBtn = document.querySelector("#colorBtn");
     
     newBoardBtn.addEventListener("click",() =>{
         createNewBoard();
     });
+    colorBtn.addEventListener("click",() =>{
+        changeColor();
+    });
 
     createBoard(16,16);
-    hoverMouse();
-
+   
 }
 
 // function asks user to input x and y rows (max 100) and creates new board, also deletes old board
@@ -58,6 +61,37 @@ function hoverMouse(){
             divY.setAttribute("style","background-color:blue");
         });
     });
+}
+
+// mouseleave was blue now random color
+function hoverMouseRandomColor(){
+    
+    const divs = document.querySelectorAll(".yDiv");
+    divs.forEach((divY) => {
+        divY.addEventListener("mouseover",() => {
+            divY.setAttribute("style","background-color:Red");
+        });
+        divY.addEventListener("mouseleave",() => {
+            let randomNumber1 = Math.floor(Math.random()*255),randomNumber2 = Math.floor(Math.random()*255),randomNumber3 = Math.floor(Math.random()*255);
+            divY.setAttribute("style","background-color:rgb("+randomNumber1+","+randomNumber2+","+randomNumber3+")");
+           
+        });
+    });
+}
+
+// Chance blue hover color to random with button
+function changeColor(){
+    let colorBtn = document.querySelector("#colorBtn");
+
+    switch(colorBtn.textContent){
+        case "Random color":
+            hoverMouse();
+            colorBtn.textContent = "Blue color";
+            break;
+        case "Blue color": 
+            hoverMouseRandomColor();
+            colorBtn.textContent = "Random color";
+    }
 }
 
 
