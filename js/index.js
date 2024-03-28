@@ -9,9 +9,22 @@ function createStartingDivs(){
             let yDiv = document.createElement("div");
             yDiv.setAttribute("class","yDiv");
             xDiv.appendChild(yDiv);
+            //let yDiv = document.querySelector(".yDiv");
+            
         }
-        
     }
+    const divs = document.querySelectorAll(".yDiv");
+    divs.forEach((divY) => {
+        divY.addEventListener("mouseover",() => {
+            divY.setAttribute("style","background-color:red");
+        });
+        divY.addEventListener("mouseleave",() => {
+            divY.setAttribute("style","background-color:blue");
+        });
+    });
 }
+
+function createNewBoard(){}
+
 
 createStartingDivs();
